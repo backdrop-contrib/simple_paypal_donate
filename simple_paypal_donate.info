@@ -1,0 +1,5 @@
+name = Simple Paypal Donate
+description = This module generates a block that asks for your unique PayPal ID and generates a simple donation form that connects to your PayPal account.
+core = 7.x
+version = 1.0
+package = Other
