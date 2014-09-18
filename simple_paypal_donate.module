@@ -19,8 +19,12 @@
     switch ($delta) {
       case 'simple_paypal_donate':
         $header = variable_get('header');
-        $business_id = variable_get('paypal_email');
         $current_url = $GLOBALS['base_url'].base_path().current_path();
+
+        $business_id = variable_get('paypal_email');
+        if(empty($business_id)){
+          $business_id = 'paypal@enjoycreativity.com';
+        }
 
         $return_url = variable_get('return_url');
         if(empty($return_url)){
@@ -78,7 +82,6 @@
         '#type' => 'textfield',
         '#title' => t('PayPal email address'),
         '#default_value' => variable_get('paypal_email','paypal@enjoycreativity.com'),
-        '#required' => TRUE,
       );
       $form['header'] = array(
         '#type' => 'textarea',
