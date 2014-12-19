@@ -63,7 +63,7 @@
             </select>
             <br />
         -->
-            <input alt="PayPal - The safer, easier way to pay online!" border="0" h4="" name="submit" src="' . base_path().drupal_get_path('module','simple_paypal_donate') . '/donatebutton.png" style="-webkit-filter: drop-shadow(5px 6px 4px rgba(0,0,0,0.5)); filter: url(#drop-shadow); -ms-filter: &quot;progid:DXImageTransform.Microsoft.Dropshadow(OffX=5, OffY=6, Color=" type="image" />
+            <input alt="PayPal - The safer, easier way to pay online!" border="0" name="submit" type="submit" value="Donate now" />
           </form>
         ';
         break;
