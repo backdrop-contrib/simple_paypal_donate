@@ -35,6 +35,11 @@
           $return_url_cancel = $current_url;
         }
 
+        $button_text = variable_get('button_text');
+        if(empty($button_text)){
+          $button_text = 'Donate now';
+        }
+
         $block['subject'] = 'Make a donation';
         $block['content'] = '
           <div class="donate-label">' . $header . '</div>
@@ -63,7 +68,7 @@
             </select>
             <br />
         -->
-            <input alt="PayPal - The safer, easier way to pay online!" border="0" name="submit" type="submit" value="Donate now" />
+            <input alt="PayPal - The safer, easier way to pay online!" border="0" name="submit" type="submit" value="' . $button_text . '" />
           </form>
         ';
         break;
@@ -100,6 +105,12 @@
         '#description' => t('If left blank, the user will be returned to the page they were on.'),
         '#default_value' => variable_get('return_url_cancel'),
       );
+      $form['button_text'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Submit button text'),
+        '#description' => t('Default: "Donate now"'),
+        '#default_value' => variable_get('button_text'),
+      );
     }
     return $form;
   }
@@ -113,6 +124,7 @@
       variable_set('header', $edit['header']);
       variable_set('return_url', $edit['return_url']);
       variable_set('return_url_cancel', $edit['return_url_cancel']);
+      variable_set('button_text', $edit['button_text']);
     }
   }
 
