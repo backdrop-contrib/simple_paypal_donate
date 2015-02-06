@@ -1,0 +1,8 @@
+{
+    "_config_name": "simple_paypal_donate.settings",
+    "header": "One time donation? Recurring? Click donate to select the amount and term.",
+    "paypal_email": "paypal@enjoycreativity.com",
+    "return_url": "",
+    "return_url_cancel": "",
+    "button_text": "Donate now"
+}

@@ -10,32 +10,45 @@
     return $blocks;
   }
 
+/**
+* Implements hook_config_info().
+*/
+function simple_paypal_donate_config_info() {
+  $prefixes['simple_paypal_donate.settings'] = array(
+    'label' => t('Simple Paypal Donate settings'),
+    'group' => t('Configuration'),
+  );
+  return $prefixes;
+}
+
   /**
    * Implements hook_block_view().
    */
   function simple_paypal_donate_block_view($delta = '') {
     $block = array();
+    $config = config('simple_paypal_donate.settings');
 
     switch ($delta) {
+
       case 'simple_paypal_donate':
-        $header = variable_get('header');
+        $header = $config->get('header');
         $current_url = $GLOBALS['base_url'].base_path().current_path();
 
-        $business_id = variable_get('paypal_email');
+        $business_id = $config->get('paypal_email');
         if(empty($business_id)){
           $business_id = 'paypal@enjoycreativity.com';
         }
 
-        $return_url = variable_get('return_url');
+        $return_url = $config->get('return_url');
         if(empty($return_url)){
           $return_url = $current_url;
         }
-        $return_url_cancel = variable_get('return_url_cancel');
+        $return_url_cancel = $config->get('return_url_cancel');
         if(empty($return_url_cancel)){
           $return_url_cancel = $current_url;
         }
 
-        $button_text = variable_get('button_text');
+        $return_url_cancel = $config->get('button_text');
         if(empty($button_text)){
           $button_text = 'Donate now';
         }
@@ -82,34 +95,35 @@
    */
   function simple_paypal_donate_block_configure($delta = '') {
     $form = array();
+    $config = config('simple_paypal_donate.settings');
     if ($delta == 'simple_paypal_donate') {
       $form['paypal_email'] = array(
         '#type' => 'textfield',
         '#title' => t('PayPal email address'),
-        '#default_value' => variable_get('paypal_email','paypal@enjoycreativity.com'),
+        '#default_value' => $config->get('paypal_email'),
       );
       $form['header'] = array(
         '#type' => 'textarea',
         '#title' => t('Header text'),
-        '#default_value' => variable_get('header','One time donation? Recurring? Click donate to select the amount and term.'),
+        '#default_value' => $config->get('header'),
       );
       $form['return_url'] = array(
         '#type' => 'textfield',
         '#title' => t('URL to return to after success'),
         '#description' => t('If left blank, the user will be returned to the page they were on.'),
-        '#default_value' => variable_get('return_url'),
+        '#default_value' => $config->get('return_url'),
       );
       $form['return_url_cancel'] = array(
         '#type' => 'textfield',
         '#title' => t('URL to return to after failure'),
         '#description' => t('If left blank, the user will be returned to the page they were on.'),
-        '#default_value' => variable_get('return_url_cancel'),
+        '#default_value' => $config->get('return_url_cancel'),
       );
       $form['button_text'] = array(
         '#type' => 'textfield',
         '#title' => t('Submit button text'),
         '#description' => t('Default: "Donate now"'),
-        '#default_value' => variable_get('button_text'),
+        '#default_value' => $config->get('button_text'),
       );
     }
     return $form;
@@ -120,11 +134,20 @@
    */
   function simple_paypal_donate_block_save($delta = '', $edit = array()) {
     if ($delta == 'simple_paypal_donate') {
-      variable_set('paypal_email', $edit['paypal_email']);
-      variable_set('header', $edit['header']);
-      variable_set('return_url', $edit['return_url']);
-      variable_set('return_url_cancel', $edit['return_url_cancel']);
-      variable_set('button_text', $edit['button_text']);
+// Get the full config object
+$config = config('simple_paypal_donate.settings');
+
+// Set individual config settings
+$config->set('paypal_email', $edit['paypal_email']);
+$config->set('header', $edit['header']);
+$config->set('return_url', $edit['return_url']);
+$config->set('return_url_cancel', $edit['return_url_cancel']);
+$config->set('button_text', $edit['button_text']);
+
+// Save
+$config->save();
+
+
     }
   }
 
