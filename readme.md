@@ -1,15 +1,20 @@
 SIMPLE PAYPAL DONATE
-===========
+===================
 
 CONTENTS OF THIS FILE
 ---------------------
 
  - Introduction
+ - Tested
+ - Known Issues
+ - Special Thanks
  - Requirements
  - Installation
- - Permissions
+ - Coming From Drupal?
  - Usage
- - Sponsors
+ - License
+ - Credits
+ - Maintainers
 
 INTRODUCTION
 ------------
@@ -19,54 +24,64 @@ This module generates a block that asks for your unique PayPal ID and generates 
 TESTED
 -----
 
-Created a Paypal donation block on Backdrop 1.0
-
+Created a working Paypal donation block on Backdrop 1.0
 
 KNOWN ISSUES
 ---------------------
 
 None yet.
 
+SPECIAL THANKS
+--------------
+
+Supporting organizations:
+ - Enjoy Creativity <https://www.drupal.org/node/1901660>
+Planning, development, and ongoing support for this module.
 
 REQUIREMENTS
 ------------
 
-No special requirements.
+none
 
 INSTALLATION
 ------------
 
- Install as you would normally install a contributed drupal module. See:
-   https://drupal.org/documentation/install/modules-themes/modules-7
-   for further information.
+Install this module using the official Backdrop CMS instructions at https://backdropcms.org/guide/modules
+
+
+COMING FROM DRUPAL?
+-------------------
+
+Nothing substantially different.
 
 PERMISSIONS
 ------------
+
+@todo
+
 
 USAGE
 -----
 
 * Configure the block to add in your PayPal ID.
 
-License
+LICENSE
 -------
 
-This project is GPL v2 software. See the LICENSE.txt file in this directory for
-complete text.
+This project is GPL v2 software. See the LICENSE.txt file in this directory for complete text.
 
-Maintainers
+CREDITS
+-----------
+
+This module is based on the Simple Paypal Donate module for Drupal, originally written and maintained by a large number of contributors, including:
+
+- davidneedham <https://www.drupal.org/u/davidneedham>
+
+MAINTAINERS
 -----------
 
 - seeking
 
-Current Maintainers on Drupal:
-
- - davidneedham <https://www.drupal.org/u/davidneedham>
-
-Supporting organizations: 
- - Enjoy Creativity <https://www.drupal.org/node/1901660>
-Planning, development, and ongoing support for this module.
- 
 Ported to Backdrop by:
 
  - biolithic <https://github.com/biolithic>

@@ -3,4 +3,5 @@ description = This module generates a block that asks for your unique PayPal ID 
 version = BACKDROP_VERSION
 backdrop = 1.x
 package = Other
+type = module
 
