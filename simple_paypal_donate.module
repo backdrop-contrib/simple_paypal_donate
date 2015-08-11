@@ -48,7 +48,8 @@ function simple_paypal_donate_config_info() {
           $return_url_cancel = $current_url;
         }
 
-        $return_url_cancel = $config->get('button_text');
+        $button_text = $config->get('button_text');
+        
         if(empty($button_text)){
           $button_text = 'Donate now';
         }

@@ -24,7 +24,7 @@ This module generates a block that asks for your unique PayPal ID and generates 
 TESTED
 -----
 
-Created a working Paypal donation block on Backdrop 1.0
+Created a working Paypal donation block on Backdrop 1.1
 
 KNOWN ISSUES
 ---------------------
@@ -63,7 +63,7 @@ PERMISSIONS
 USAGE
 -----
 
-* Configure the block to add in your PayPal ID.
+* Configure the block in the Layouts page for all options.  There is no configuration or options page for this module.
 
 LICENSE
 -------
