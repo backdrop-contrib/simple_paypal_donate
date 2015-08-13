@@ -1,6 +1,8 @@
 SIMPLE PAYPAL DONATE
 ===================
 
+This module generates a block that asks for your unique PayPal ID and generates a simple donation form that connects to your PayPal account.
+
 CONTENTS OF THIS FILE
 ---------------------
 
@@ -15,11 +17,6 @@ CONTENTS OF THIS FILE
  - License
  - Credits
  - Maintainers
-
-INTRODUCTION
-------------
-
-This module generates a block that asks for your unique PayPal ID and generates a simple donation form that connects to your PayPal account.
 
 TESTED
 -----
